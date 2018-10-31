@@ -1,0 +1,171 @@
+C和指针 函数笔记
+
+void zero(int x)
+{7
+  i=0;
+}
+
+void main()
+{
+	int i=10;
+	zero(i);  //地址传递
+	printf("%d",i);
+}
+
+
+void zero(int *x)
+{
+  
+}
+
+void main()
+{
+	int i=10;
+	zero(&i);  //地址传递
+	printf("%d",i);
+}
+
+         it **s
+void fun(int *s)
+{
+   s=NULL;  *s
+}
+void main()
+{
+
+int i=10;
+ int *p=&i;
+ fun(p);   //&p改变p的指向
+ printf("%p",p);
+}
+//s
+//e 
+//f
+
+int ftoi(float f)
+{
+	int temp=*(int *)&f;   //地址不变，看成整形
+    int sign=0;
+    
+    if(p>>31==0)
+    {
+	    sign=1;
+	}	
+ 	else
+	{
+		sign=-1;
+	}
+	
+	int exp=(temp&0x7f800000)>>23)-127;
+	
+	int tail=(temp&0x007fffff) | (1<<23);
+	
+	int i=(tail>>(23-exp))*sign;
+	return 0;
+}
+内存拷贝memcpy
+
+*cp++  -->先取得cp指向单元的值，再进行地址加一
+
+++*p++  -->先解引用，再
+
+
+指针之间，加乘，除法么有意义。
+
+
+void main()
+{
+	char *p;
+	short *q;
+	int *s;
+	
+	/*  
+	p=r;
+	q=r;
+	s=r;
+	*/
+	
+	
+	r=q;
+	r=p;
+	r=s;
+	
+	void* 类型的地址兼容所有地址
+	类似于 迪米特法则
+}
+
+
+
+函数的定义
+函数的实现
+
+
+函数的声明
+函数的原型
+
+
+多文件编译链接
+
+返回值  递归函数（）
+{
+   if（满足条件）
+   {
+	 return ;
+   }
+   
+   else
+   {
+		调用
+   }
+   
+   
+}
+
+
+递归打印一个数字  12345
+
+void fun(int n)
+{
+	if(n==0)
+	{
+		return ;
+	}
+	else
+	{
+		printf("%d",n);
+		fun(n/10);
+	}
+}
+
+
+可变参数：
+#include<stdarg.h>
+
+float average(int n,...)  //n是个数
+{
+	char *p=NULL;
+	int count=0;
+	float sum=0;
+	
+	//准备访问可变参数
+	va_start(p,n);
+	//添加取自可变参数列表的值
+	
+	for(count=0;count<n;count++)
+	{
+		sum+=va_arg(p,int);
+	}
+	
+	//完成对于可变参数的访问
+	
+	va_end(p);
+	return sum/n;	
+}
+调用average(3,10,20,30);
+
+va_end   -->  p=NULL  使用完毕回收内存
+va_start  -->
+
+
+p=(char *)&a+4  使得a变为一个地址值
+
